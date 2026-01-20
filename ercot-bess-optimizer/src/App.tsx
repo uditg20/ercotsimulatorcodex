@@ -248,20 +248,17 @@ function App() {
     return () => window.clearInterval(timer)
   }, [intervalMs])
 
-  useEffect(() => {
-    setCurrentStep(0)
-  }, [controls.intervalMode])
-
-  useEffect(() => {
-    setControls((prev) =>
-      prev.virtualMw > prev.maxVirtualMw
-        ? { ...prev, virtualMw: prev.maxVirtualMw }
-        : prev
-    )
-  }, [controls.maxVirtualMw])
-
   const updateControls = (patch: Partial<ControlState>) =>
-    setControls((prev) => ({ ...prev, ...patch }))
+    setControls((prev) => {
+      const next = { ...prev, ...patch }
+      if (next.virtualMw > next.maxVirtualMw) {
+        next.virtualMw = next.maxVirtualMw
+      }
+      if (next.virtualMw < 0) {
+        next.virtualMw = 0
+      }
+      return next
+    })
 
   const resetSimulation = () => {
     setPnl({
@@ -317,9 +314,10 @@ function App() {
           <ToggleSwitch
             label={controls.intervalMode === '5m' ? '5-minute feel' : '15-minute steps'}
             checked={controls.intervalMode === '5m'}
-            onChange={(checked) =>
+            onChange={(checked) => {
+              setCurrentStep(0)
               updateControls({ intervalMode: checked ? '5m' : '15m' })
-            }
+            }}
           />
         </div>
       </header>
