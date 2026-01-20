@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ActionType, StrategyScore, StrategyType } from '../types'
+import type { ActionType, StrategyScore, StrategyType } from '../types'
 
 interface DecisionEngineProps {
   bestAction: ActionType

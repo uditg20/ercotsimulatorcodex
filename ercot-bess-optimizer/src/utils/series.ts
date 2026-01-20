@@ -1,4 +1,4 @@
-import { ForecastPoint, IntervalMode, PricePoint } from '../types'
+import type { ForecastPoint, IntervalMode, PricePoint } from '../types'
 
 const clamp = (value: number, min: number, max: number) =>
   Math.min(max, Math.max(min, value))

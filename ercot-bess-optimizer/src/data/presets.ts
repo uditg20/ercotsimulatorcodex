@@ -1,4 +1,4 @@
-import { ControlState } from '../types'
+import type { ControlState } from '../types'
 
 export interface ScenarioPreset {
   id: string

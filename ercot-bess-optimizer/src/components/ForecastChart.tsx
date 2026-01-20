@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import { ForecastPoint } from '../types'
+import type { ForecastPoint } from '../types'
 
 interface ForecastChartProps {
   data: ForecastPoint[]
@@ -48,9 +48,9 @@ const ForecastChart: React.FC<ForecastChartProps> = ({
             />
             <YAxis stroke="#6b7280" tick={{ fontSize: 11 }} width={40} />
             <Tooltip
-              formatter={(value: number, name: string) => [
-                value.toFixed(1),
-                name,
+              formatter={(value, name) => [
+                typeof value === 'number' ? value.toFixed(1) : `${value ?? ''}`,
+                String(name),
               ]}
               labelFormatter={(label) => `Hour ${formatHour(Number(label))}`}
               contentStyle={{

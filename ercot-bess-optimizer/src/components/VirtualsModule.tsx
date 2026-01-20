@@ -1,5 +1,5 @@
 import React from 'react'
-import { VirtualDirection } from '../types'
+import type { VirtualDirection } from '../types'
 
 interface VirtualsModuleProps {
   virtualDirection: VirtualDirection

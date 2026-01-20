@@ -1,5 +1,5 @@
 import React from 'react'
-import { StrategyScore, StrategyType } from '../types'
+import type { StrategyScore, StrategyType } from '../types'
 
 interface ValueBarsProps {
   items: StrategyScore[]

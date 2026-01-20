@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScenarioPreset } from '../data/presets'
+import type { ScenarioPreset } from '../data/presets'
 
 interface ScenarioPresetsProps {
   presets: ScenarioPreset[]

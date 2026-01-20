@@ -1,5 +1,5 @@
 import React from 'react'
-import { DecisionRationale } from '../types'
+import type { DecisionRationale } from '../types'
 
 interface RationalePanelProps {
   rationale: DecisionRationale

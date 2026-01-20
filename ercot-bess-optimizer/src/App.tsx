@@ -15,7 +15,7 @@ import BreakItPanel from './components/BreakItPanel'
 import { scenarioPresets } from './data/presets'
 import { generateForecastSeries, generatePriceSeries } from './utils/series'
 import { evaluateDecision, getConfidenceLabel, getConfidenceScore } from './utils/optimizer'
-import { ControlState } from './types'
+import type { ControlState } from './types'
 
 function App() {
   const defaultControls: ControlState = {
